@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rick Roll Time</title>
+  <style>
+    body {
+      margin: 0;
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .video-container {
+      width: 90%;
+      max-width: 800px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+      display: none;
+    }
+    video {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .loading {
+      font-size: 2rem;
+    }
+    .dots::after {
+      content: '';
+      animation: dots 1s steps(3, end) infinite;
+    }
+    @keyframes dots {
+      0% { content: ''; }
+      33% { content: '.'; }
+      66% { content: '..'; }
+      100% { content: '...'; }
+    }
+  </style>
+</head>
+<body>
+  <div class="loading"><span>Loading game</span><span class="dots"></span></div>
+  <div class="video-container">
+    <video
+      src="https://archive.org/download/rick-astley-never-gonna-give-you-up-official-music-video_202505/Rick%20Astley%20-%20Never%20Gonna%20Give%20You%20Up%20%28Official%20Music%20Video%29.mp4"
+      autoplay
+      muted
+      loop
+      playsinline
+      controls
+    >
+      Your browser does not support the video tag.
+    </video>
+  </div>
+  <script>
+    setTimeout(() => {
+      document.querySelector('.loading').style.display = 'none';
+      document.querySelector('.video-container').style.display = 'block';
+    }, 3000);
+  </script>
+</body>
+</html>
